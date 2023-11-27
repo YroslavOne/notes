@@ -1,0 +1,9 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+}
+.search_main{
+    background: url(../../../../public/main\ icon/search.svg);
+    background-repeat: no-repeat;
+    background-position-x: right;
+}
