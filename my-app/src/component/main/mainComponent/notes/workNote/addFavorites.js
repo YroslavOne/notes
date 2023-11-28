@@ -1,4 +1,4 @@
-function AddFavorites(key) {
-  console.log(key);
+function AddFavorites() {
+    console.log('this это:', this);
 }
 export default AddFavorites;

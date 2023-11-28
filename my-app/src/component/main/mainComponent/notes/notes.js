@@ -6,7 +6,7 @@ function Notes() {
   return (
     <div>
       <ul>
-        {ArrayNotes.map((ArrayObj) => (
+        {ArrayNotes.map((ArrayObj, index) => (
           <NotesHtml
             id={ArrayObj.id}
             title={ArrayObj.title}
