@@ -8,7 +8,7 @@ function NotesHtml(props) {
 const [title, setTitle] = useState(props.title);
 
 const handleChange = () => {
-    setTitle('ckek');
+    setTitle(prompt("Введите телефон:", "   8  9__1112-3-4   5 6 7"));
   };
   return (
     <li className="notes">
