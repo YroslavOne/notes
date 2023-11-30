@@ -13,7 +13,7 @@ const ArrayNotes = [
   {
     id: uuidv4(),
     title: 'notes2',
-    description: 'Lorean lkfmsklfmse',
+    description: 'lorean lkfmsklfmse',
     tag: 'shoping',
     trash: false,
     favorites: true,

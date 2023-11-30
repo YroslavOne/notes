@@ -6,4 +6,43 @@
     background: url(../../../../public/main\ icon/search.svg);
     background-repeat: no-repeat;
     background-position-x: right;
+    border-radius: 5px;
+    border: none;
+    background: white;
+    margin: 20px 0 20px 0;
 }
+.sidebar-button{
+    display: flex;
+    width: 140px;
+    height: 30px;
+    padding: 5px 10px;
+    color: black;
+    text-align: initial;
+    margin: 1px;
+    border-style: none;
+    background: white;
+
+    /* border: none; */
+    /* border-left: 1px; */
+    /* border-color: none; */
+}
+.radio-button input{
+    text-decoration: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: white;
+}
+.sidebar-icon-button{
+margin-right: 10px;
+}
+
+.sidebar-button:hover{
+color: rgb(0, 166, 232);
+border-left: 3px solid rgb(0, 166, 232);
+}
+.radio-button input[type="radio"]:checked+label{
+    color: rgb(0, 166, 232);
+    border-left: 3px solid rgb(0, 166, 232);
+    
+    }

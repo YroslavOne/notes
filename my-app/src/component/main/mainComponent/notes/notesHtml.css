@@ -1,0 +1,36 @@
+li{
+    list-style: none;
+}
+
+.notes{
+    display: flex;
+    width: 300px;
+    text-align: center;
+    justify-content: space-between;
+    background: rgb(235, 204, 146);
+    margin-top: 20px;
+    padding: 10px;
+
+}
+.notes-actions{
+    display: flex;
+
+
+}
+.button-notes{
+    margin: 0 2px;
+    display: flex;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background:  rgb(0, 225, 255);
+    color: white;
+}
+.button-notes:hover{
+    background:  white;
+    color: rgb(0, 225, 255)
+}
