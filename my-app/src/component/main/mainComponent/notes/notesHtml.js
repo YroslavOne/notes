@@ -30,14 +30,10 @@ return(<button className="button-notes">
 </button>)
   }
 }
-let id = props.id
-function AddFavorites(heuuuuu){
-console.log(heuuuuu)
-}
 
   let favorites = props.favorites;
   const starHtml =()=>{ if (favorites === true){
-    return ( <button className="button-notes" id={props.id} onClick={() => this.AddFavorites({id})}>
+    return ( <button className="button-notes">
     <StarFill />
   </button>
   )

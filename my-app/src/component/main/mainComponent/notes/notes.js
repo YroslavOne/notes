@@ -2,11 +2,11 @@ import ArrayNotes from '../../../../data.js';
 import React from 'react';
 import NotesHtml from './notesHtml.js';
 
-function Notes() {
+function Notes(props) {
   return (
     <div>
       <ul>
-        {ArrayNotes.map((ArrayObj, index) => (
+        {props.data.map((ArrayObj, index) => (
           <NotesHtml
             id={ArrayObj.id}
             title={ArrayObj.title}

@@ -1,12 +1,13 @@
 import Sidebar from './mainComponent/sidebar';
 import Dashboard from './mainComponent/dashboard';
+// import React from 'react';
 import './main.css';
 
-function Main() {
+function Main(props) {
     return (
       <div className='main'>
         <Sidebar/>
-        <Dashboard/>
+        <Dashboard data={props.data}/>
       </div>
     );
   }

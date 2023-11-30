@@ -1,0 +1,30 @@
+.dashboard{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.add-button{
+    border-radius: 50%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-weight: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.top-dashboard-line{
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    color: rgb(225, 103, 219);
+}
+.dashboard-tag button{
+
+}

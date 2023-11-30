@@ -1,10 +1,12 @@
 import './App.css';
 import Main from './main/main.js';
+import ArrayNotes from "../data.js"
 
-function App() {
+
+function App(props) {
   return (
     <div className="App">
-<Main/>
+<Main data={ArrayNotes}/>
     </div>
   );
 }
