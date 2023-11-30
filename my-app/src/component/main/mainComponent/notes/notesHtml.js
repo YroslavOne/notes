@@ -6,15 +6,20 @@ import { useState } from 'react';
 function NotesHtml(props) {
 
 const [title, setTitle] = useState(props.title);
+const [description, setDescription] = useState(props.description);
 
-const handleChange = () => {
-    setTitle(prompt("Введите телефон:", "   8  9__1112-3-4   5 6 7"));
+const handleChange = (event) => {
+  // alert(id)
+  console.log(event)
+  // setDescription(e.target)
+    // setTitle(id);
   };
   return (
     <li className="notes">
       <div className="notes-text">
-        <h2 onClick={handleChange} >{title}</h2>
-        <p>{props.description}</p>
+        <h2>{title}</h2>
+        <p onClick={handleChange}>  
+        {description}</p>
       </div>
       <div className="notes-actions">
         <button className="button-notes">
