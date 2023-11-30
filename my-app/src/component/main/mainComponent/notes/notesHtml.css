@@ -1,41 +1,51 @@
-ul{
-    list-style: none;
-    margin: auto;
-    padding: 0;
-}
-li{
-    list-style: none;
+ul {
+	list-style: none;
+	margin: auto;
+	padding: 0;
 }
 
-.notes{
-    display: flex;
-    width: 300px;
-    text-align: center;
-    justify-content: space-between;
-    background: rgb(235, 204, 146);
-    margin-top: 20px;
-    padding: 10px;
+li {
+	list-style: none;
+}
+
+.notes {
+	display: flex;
+	width: 300px;
+	text-align: center;
+	justify-content: space-between;
+	background: rgb(235, 204, 146);
+	margin-top: 20px;
+	padding: 10px;
+	padding-left: 0;
 
 }
-.notes-actions{
-    display: flex;
+
+.notes-actions {
+	display: flex;
 
 
 }
-.button-notes{
-    margin: 0 2px;
-    display: flex;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    background:  rgb(0, 225, 255);
-    color: white;
+
+.button-notes {
+	margin: 0 2px;
+	display: flex;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	background: rgb(0, 225, 255);
+	color: white;
 }
-.button-notes:hover{
-    background:  white;
-    color: rgb(0, 225, 255)
+
+.button-notes:hover {
+	background: white;
+	color: rgb(0, 225, 255)
+}
+
+.line-tags {
+	left: 10px;
+	height: 120%;
 }

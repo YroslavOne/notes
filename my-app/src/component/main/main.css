@@ -1,4 +1,5 @@
-.main{
-    display: flex;
-    margin: auto;
+.main {
+	display: flex;
+	margin: auto;
+	margin-top: 50px;
 }

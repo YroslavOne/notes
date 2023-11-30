@@ -8,6 +8,7 @@ function Notes(props) {
       <ul>
         {props.data.map((ArrayObj, index) => (
           <NotesHtml
+            dataTag={props.dataTag}
             id={ArrayObj.id}
             title={ArrayObj.title}
             description={ArrayObj.description}
