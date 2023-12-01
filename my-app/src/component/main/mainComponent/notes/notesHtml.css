@@ -12,11 +12,21 @@ li {
 	display: flex;
 	width: 300px;
 	text-align: center;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	background: rgb(235, 204, 146);
-	margin-top: 20px;
-	padding: 10px;
 	padding-left: 0;
+	margin-top: 20px;
+
+
+}
+.notes-group{
+    width: 100%;
+    display: flex;
+	/* margin-top: 20px; */
+	justify-content: space-between;
+	text-align: center;
+
+	padding: 10px;
 
 }
 
@@ -47,5 +57,5 @@ li {
 
 .line-tags {
 	left: 10px;
-	height: 120%;
+    width: 20px;
 }

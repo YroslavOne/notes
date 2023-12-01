@@ -8,7 +8,7 @@ const ArrayNotes = [
     tag: ['shopping', 'business', 'other things'],
     trash: false,
     favorites: false,
-    key: 1,
+    // key: 1,
   },
   {
     id: uuidv4(),
@@ -17,7 +17,7 @@ const ArrayNotes = [
     tag: ['shopping'],
     trash: false,
     favorites: true,
-    key: 2,
+    // key: 2,
   },
   {
     id: uuidv4(),
@@ -26,16 +26,16 @@ const ArrayNotes = [
     tag: ['shopping'],
     trash: true,
     favorites: false,
-    key: 3,
+    // key: 3,
   },
   {
     id: uuidv4(),
     title: 'notes4',
-    description: 'Lorean lkfmsklfmse',
+    description: 'Lorean lkfmsklfmse Lorean lkfmsklfmse Lorean lkfmsklfmse Lorean lkfmsklfmse Lorean lkfmsklfmse Lorean lkfmsklfmse',
     tag: ['shopping'],
     trash: false,
     favorites: true,
-    key: 4,
+    // key: 4,
   },
 ];
 export default ArrayNotes;

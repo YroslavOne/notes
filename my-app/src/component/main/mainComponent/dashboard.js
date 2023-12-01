@@ -1,5 +1,5 @@
 import Notes from './notes/notes';
-import createNote from './notes/createNote';
+import СreateNote from './notes/createNote';
 import './dashboard.css';
 import ArrayTags from '../../../dataTag';
 // import {useState} from "react";
@@ -26,7 +26,7 @@ function Dashboard(props) {
           ))}
         </div>
       </div>
-      {/* <div>{<createNote/>}</div> */}
+      <div><СreateNote dataTag={ArrayTags}/></div>
       <div>
         <Notes data={props.data} dataTag={ArrayTags} />
       </div>

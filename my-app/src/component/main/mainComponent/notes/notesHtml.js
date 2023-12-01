@@ -3,6 +3,7 @@ import { Trash3Fill } from 'react-bootstrap-icons';
 import { Star } from 'react-bootstrap-icons';
 import { StarFill } from 'react-bootstrap-icons';
 import { useState } from 'react';
+import TagColor from './functionNote/tagColor';
 import './notesHtml.css';
 // import AddFavorites from './workNote/addFavorites';
 
@@ -50,38 +51,12 @@ function NotesHtml(props) {
     }
   };
 
-  let arrayDataTag = [];
-  // const dataTag = props.dataTag;
-
-  // const arrayColorDataTag = () => {
-  // let arrayColorTag = tagColor();
-  //   arrayColorTag.map((elementColorTag) => (
-  //     <div style={{ background: elementColorTag }}>1</div>
-  //   ));
-  // };
-
-  let tagColor = () => {
-    props.tag.map((tagObj) => arrayDataTag.push(filterDataTeg(tagObj)));
-    console.log(arrayDataTag);
-    return arrayDataTag;
-  };
-
-  function filterDataTeg(ElemTagObj) {
-    const paramDataTag = props.dataTag.filter((tag) => tag.name === ElemTagObj);
-    const colorDataTag = paramDataTag[0].color;
-    return colorDataTag;
-  }
+  
 
   return (
     <li className="notes">
-      <div className="line-tags">
-        {tagColor().map((elementColorTag) => (
-          <div style={{ background: elementColorTag }}>1</div>
-        ))}
-        {/* {props.tag.map((tagObj, index) => (
-          <div style={{ background: tagObj}}>{tagObj}</div>
-        ))} */}
-      </div>
+      <TagColor tag={props.tag} dataTag={props.dataTag}/>
+      <div className='notes-group'>
       <div className="notes-text">
         <h2>{title}</h2>
         <p onClick={handleChange}>{description}</p>
@@ -89,6 +64,7 @@ function NotesHtml(props) {
       <div className="notes-actions">
         {trash()}
         {starHtml()}
+      </div>
       </div>
     </li>
   );
