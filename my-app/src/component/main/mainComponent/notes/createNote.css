@@ -3,3 +3,9 @@
     position: relative;
     width: 100%;
 }
+.create-notes-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
