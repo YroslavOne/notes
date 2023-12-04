@@ -26,7 +26,7 @@ function Dashboard(props) {
           ))}
         </div>
       </div>
-      <div><СreateNote dataTag={ArrayTags}/></div>
+      <div><СreateNote data={props.data} dataTag={ArrayTags}/></div>
       <div>
         <Notes data={props.data} dataTag={ArrayTags} />
       </div>

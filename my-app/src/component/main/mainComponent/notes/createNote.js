@@ -1,4 +1,6 @@
 import "./createNote.css";
+import { v4 as uuidv4 } from 'uuid';
+
 import { useState } from "react";
 
 function createNote(props){
@@ -24,6 +26,17 @@ thisFavorites = e
 
 function saveNote(){
 
+let objCreateNote = {
+    id: uuidv4(),
+    title: thisValueInput,
+    description: thisTexarea,
+    tag: ['shopping', 'business'],
+    trash: false,
+    favorites: thisFavorites,}
+console.log("objCreateNote")
+
+console.log(objCreateNote)
+props.data.push(objCreateNote)
 console.log(thisValueInput)
 console.log(thisTexarea)
 console.log(thisSelect)   
