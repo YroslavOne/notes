@@ -2,12 +2,25 @@ import { Trash3 } from 'react-bootstrap-icons';
 import { Star } from 'react-bootstrap-icons';
 import { Clipboard2 } from 'react-bootstrap-icons';
 import './sidebar.css'
-import { useState } from 'react';
 
-function Sidebar(){
+function Sidebar(props){
 
 function radioChange(e){
-  console.log(e)
+  
+  if(e === "All"){
+    const dataFilter =  props.data.filter(ObjectElem=>ObjectElem.trash !== true)
+    props.setData(dataFilter)
+  } else { 
+    if(e === "Trash"){
+      const dataFilter =  props.data.filter(ObjectElem=>ObjectElem.trash === true)
+      props.setData(dataFilter)
+  } else {
+    if (e === "Favorites"){
+      const dataFilter =  props.data.filter(ObjectElem=>ObjectElem.favorites === true)
+      props.setData(dataFilter)}
+    
+  } 
+  }
 }
   
     return (
