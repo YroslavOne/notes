@@ -5,16 +5,15 @@ import ArrayNotes from "../data.js"
 
 
 function App() {
-  localStorage.arrayNote = JSON.stringify(ArrayNotes);
-  // localStorage.clear();
-  // localStorage.removeItem("arrayNote")
-  // Storage.arrayNote()
-  // JSON.parse(localStorage.storage)
-  let dataNote = JSON.parse(localStorage.arrayNotes)
+  // localStorage.arrayNote = JSON.stringify(ArrayNotes);
+  let localStorageArrayNote = localStorage.arrayNote
+  console.log(localStorageArrayNote)
+  // let dataNote = [];
+  let dataNote = JSON.parse(localStorage.arrayNote)
   console.log(dataNote)
   return (
     <div className="App">
-<Main data={ArrayNotes}/>
+<Main data={dataNote}/>
     </div>
   );
 }

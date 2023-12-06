@@ -33,14 +33,10 @@ let objCreateNote = {
     tag: ['shopping', 'business'],
     trash: false,
     favorites: thisFavorites,}
-console.log("objCreateNote")
 
-console.log(objCreateNote)
-props.data.push(objCreateNote)
-console.log(thisValueInput)
-console.log(thisTexarea)
-console.log(thisSelect)   
-console.log(thisFavorites)
+let arrayDataNote = JSON.parse(localStorage.arrayNote)
+arrayDataNote.push(objCreateNote)
+localStorage.arrayNote = JSON.stringify(arrayDataNote)
 }
 
     return(
