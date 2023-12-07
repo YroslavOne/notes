@@ -6,6 +6,8 @@ import './sidebar.css'
 function Sidebar(props){
 
 function radioChange(e){
+  const dataFilter =  props.data.filter(ObjectElem=>ObjectElem.trash !== true)
+    props.setData(dataFilter)
   
   if(e === "All"){
     const dataFilter =  props.data.filter(ObjectElem=>ObjectElem.trash !== true)
@@ -43,18 +45,6 @@ function radioChange(e){
       <input type="radio" id="Favorites" name="drone" value="Favorites"/>
       <a>Favorites</a>
       </label>
-      {/* <label>
-          <input type="radio" name="myRadio" value="option1" />
-          Option 1
-        </label>
-        <label>
-          <input type="radio" name="myRadio" value="option2" />
-          Option 2
-        </label>
-        <label>
-          <input type="radio" name="myRadio" value="option3" />
-          Option 3
-        </label> */}
       </div>
     </div>
       );

@@ -51,10 +51,18 @@ function NotesHtml(props) {
     }
   };
 
+  function editNote(e){
+    console.log(title)
+    console.log(description)
+    console.log(props.tag)
+    console.log(props.id)
+    console.log(props.favorites)
+  }
+
   
 
   return (
-    <li className="notes">
+    <li onClick={(e)=>editNote(e.target.value)} className="notes">
       <TagColor tag={props.tag} dataTag={props.dataTag}/>
       <div className='notes-group'>
       <div className="notes-text">
