@@ -26,6 +26,13 @@ function FormNote(props){
             thisSelect = e
             console.log(thisSelect)
         }
+
+        let elementerdf = [];
+        valueSelect.foreach((element)=>{
+            elementerdf.push(element.__reactProps$og5dywcrbbs.value                )
+        })
+        console.log(elementerdf)
+
         // let thisFavorites
         // function getFavorites(e){
         // thisFavorites = e
@@ -44,7 +51,7 @@ function FormNote(props){
         console.log(objCreateNote)
         let arrayDataNote = JSON.parse(localStorage.arrayNote)
         arrayDataNote.push(objCreateNote)
-        localStorage.arrayNote = JSON.stringify(arrayDataNote)
+        // localStorage.arrayNote = JSON.stringify(arrayDataNote)
         setValueInput("");
         setValueTexarea("");
         setValueSelect([]);
