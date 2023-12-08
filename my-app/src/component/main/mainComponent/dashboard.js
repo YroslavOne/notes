@@ -2,10 +2,11 @@ import Notes from './notes/notes';
 import СreateNote from './notes/createNote';
 import './dashboard.css';
 import ArrayTags from '../../../dataTag';
-// import {useState} from "react";
+import { useState } from 'react';
 import { Plus } from 'react-bootstrap-icons';
 
 function Dashboard(props) {
+  const [dataNote, setDataNote] = useState(props.data);
   // const buttonTags = () => {
   //   ArrayTags.map((ArrayObj, index) => (
   //     <button style={{ background: ArrayObj.color }}>ArrayObj.tag</button>
@@ -26,9 +27,11 @@ function Dashboard(props) {
           ))}
         </div>
       </div>
-      <div><СreateNote data={props.data} dataTag={ArrayTags}/></div>
       <div>
-        <Notes data={props.data} dataTag={ArrayTags} />
+        <СreateNote dataTag={ArrayTags} setData={setDataNote} />
+      </div>
+      <div>
+        <Notes data={dataNote} dataTag={ArrayTags} />
       </div>
     </div>
   );
