@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import ArrayNotes from '../data.js';
 
 function App() {
+  localStorage.arrayNote = JSON.stringify(ArrayNotes);
   let localStorageArrayNote = localStorage.arrayNote;
   console.log(localStorageArrayNote);
   // let dataNote = [];
