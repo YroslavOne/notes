@@ -6,15 +6,18 @@ import { useState } from 'react';
 
 function Main(props) {
   const [selectData, setSelectData] = useState(props.data);
-  const [selectCategory, setSelectCategory] = useState('All')
+  const [selectCategory, setSelectCategory] = useState('All');
   // console.log("setSelectCategory")
   // console.log(selectCategory)
-
 
   return (
     <div className="main">
       <Sidebar setSelectCategory={setSelectCategory} />
-      <Dashboard data={selectData} setData={setSelectData} category={selectCategory} />
+      <Dashboard
+        data={selectData}
+        setData={setSelectData}
+        category={selectCategory}
+      />
     </div>
   );
 }

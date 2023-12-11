@@ -8,10 +8,8 @@ function deleteNote(elem) {
     if (Object.id === elem) {
       if (Object.trash === true) {
         dataNote.splice(index, 1);
-        App();
       } else {
         dataNote[index].trash = true;
-        App();
       }
     }
   });

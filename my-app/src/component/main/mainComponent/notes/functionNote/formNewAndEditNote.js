@@ -26,13 +26,12 @@ function FormNote(props) {
       trash: false,
       favorites: valueFavorites,
     };
-
-    console.log(objCreateNote);
     let arrayDataNote = JSON.parse(localStorage.arrayNote);
     arrayDataNote.push(objCreateNote);
     localStorage.arrayNote = JSON.stringify(arrayDataNote);
-
     props.setData(arrayDataNote);
+    // props.setObj(objCreateNote);
+
     setValueInput('');
     setValueTexarea('');
     setValueSelect([]);
