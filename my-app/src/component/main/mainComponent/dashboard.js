@@ -1,5 +1,5 @@
 import Notes from './notes/notes';
-import СreateNote from './notes/createNote';
+import СreateNote from './notes/functionNote/createNote';
 import './dashboard.css';
 import ArrayTags from '../../../dataTag';
 import { useState } from 'react';
@@ -32,7 +32,11 @@ function Dashboard(props) {
         <СreateNote dataTag={ArrayTags} setData={setDataNote} />
       </div>
       <div>
-        <Notes data={dataNote} dataTag={ArrayTags} thisCategory={props.category}/>
+        <Notes
+          data={dataNote}
+          dataTag={ArrayTags}
+          thisCategory={props.category}
+        />
       </div>
     </div>
   );

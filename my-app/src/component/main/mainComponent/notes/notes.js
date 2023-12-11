@@ -8,31 +8,28 @@ function Notes(props) {
   // const [dataNotes, setDataNotes] = useState(props.data)
   // const notesData = props.data
   // console.log(props.thisCategory)
-  
-  let notesData = props.data
-    if(props.thisCategory === "All"){
-      notesData = props.data.filter(ObjectElem=>ObjectElem.trash !== true)
-      // setDataNotes(notesData)
-      // console.log(notesData)
-    } else { 
-      if(props.thisCategory === "Trash"){
-        notesData = props.data.filter(ObjectElem=>ObjectElem.trash === true)
-        // setDataNotes(notesData)
 
+  let notesData = props.data;
+  if (props.thisCategory === 'All') {
+    notesData = props.data.filter((ObjectElem) => ObjectElem.trash !== true);
+    // setDataNotes(notesData)
+    // console.log(notesData)
+  } else {
+    if (props.thisCategory === 'Trash') {
+      notesData = props.data.filter((ObjectElem) => ObjectElem.trash === true);
+      // setDataNotes(notesData)
     } else {
-      if (props.thisCategory === "Favorites"){
-        notesData = props.data.filter(ObjectElem=>ObjectElem.favorites === true)
+      if (props.thisCategory === 'Favorites') {
+        notesData = props.data.filter(
+          (ObjectElem) =>
+            (ObjectElem.favorites === true) & (ObjectElem.trash !== true)
+        );
         // setDataNotes(notesData)
       }
-      
-    } 
     }
+  }
 
-    // console.log(dataNotes)
-
-
-
-
+  // console.log(dataNotes)
 
   return (
     <div>

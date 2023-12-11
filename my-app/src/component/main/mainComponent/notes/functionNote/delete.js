@@ -1,17 +1,21 @@
-function deleteNote(elem){
-console.log(elem)
+import { App } from 'react-bootstrap-icons';
 
-const dataNote = JSON.parse(localStorage.arrayNote)
-dataNote.map((Object,index)=>{
-    if(Object.id=== elem){
-        if(Object.trash === true){
-            dataNote.splice(index, 1)
-        } else{
-            dataNote[index].trash = true
-        }
+function deleteNote(elem) {
+  console.log(elem);
+
+  const dataNote = JSON.parse(localStorage.arrayNote);
+  dataNote.map((Object, index) => {
+    if (Object.id === elem) {
+      if (Object.trash === true) {
+        dataNote.splice(index, 1);
+        App();
+      } else {
+        dataNote[index].trash = true;
+        App();
+      }
     }
-})
-localStorage.arrayNote = JSON.stringify(dataNote)
-// console.log(dataNote)
+  });
+  localStorage.arrayNote = JSON.stringify(dataNote);
+  // console.log(dataNote)
 }
-export default deleteNote
+export default deleteNote;
