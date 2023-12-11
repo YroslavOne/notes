@@ -3,15 +3,18 @@ import React, { useState } from 'react';
 import NotesHtml from './notesHtml.js';
 
 function Notes(props) {
-  let notesData = props.data;
+  const [thisdataNote, setThisDataNote] = useState(props.data);
+  let dataNote = thisdataNote;
+
+  console.log(dataNote);
   if (props.thisCategory === 'All') {
-    notesData = props.data.filter((ObjectElem) => ObjectElem.trash !== true);
+    dataNote = props.data.filter((ObjectElem) => ObjectElem.trash !== true);
   } else {
     if (props.thisCategory === 'Trash') {
-      notesData = props.data.filter((ObjectElem) => ObjectElem.trash === true);
+      dataNote = props.data.filter((ObjectElem) => ObjectElem.trash === true);
     } else {
       if (props.thisCategory === 'Favorites') {
-        notesData = props.data.filter(
+        dataNote = props.data.filter(
           (ObjectElem) =>
             (ObjectElem.favorites === true) & (ObjectElem.trash !== true)
         );
@@ -25,7 +28,7 @@ function Notes(props) {
   return (
     <div>
       <ul>
-        {notesData.map((ArrayObj, index) => (
+        {dataNote.map((ArrayObj, index) => (
           <NotesHtml
             dataTag={props.dataTag}
             id={ArrayObj.id}
@@ -35,6 +38,8 @@ function Notes(props) {
             trash={ArrayObj.trash}
             favorites={ArrayObj.favorites}
             key={ArrayObj.key}
+            setdata={setThisDataNote}
+            data={thisdataNote}
           />
         ))}
       </ul>

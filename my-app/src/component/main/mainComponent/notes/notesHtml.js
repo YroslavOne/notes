@@ -1,35 +1,14 @@
-import { Trash3 } from 'react-bootstrap-icons';
-import { Trash3Fill } from 'react-bootstrap-icons';
 import { Star } from 'react-bootstrap-icons';
 import { StarFill } from 'react-bootstrap-icons';
 import { useState } from 'react';
 import TagColor from './functionNote/tagColor';
-import deleteNote from './functionNote/delete';
+import DeleteNote from './functionNote/delete';
 import './notesHtml.css';
 // import AddFavorites from './workNote/addFavorites';
 
 function NotesHtml(props) {
-  const [thisFavorites, setThisFavorites] = useState(props.favorites);
-
-  function favoritesChange() {
-    setThisFavorites(!thisFavorites);
-  }
-
-  let trash = () => {
-    if (props.trash === true) {
-      return (
-        <button onClick={(e) => deleteNote(props.id)} className="button-notes">
-          <Trash3Fill />
-        </button>
-      );
-    } else {
-      return (
-        <button onClick={(e) => deleteNote(props.id)} className="button-notes">
-          <Trash3 />
-        </button>
-      );
-    }
-  };
+  const [dataNote, setDataNote] = useState(props.data);
+  console.log(dataNote);
 
   let favorites = props.favorites;
   const starHtml = () => {
@@ -65,7 +44,12 @@ function NotesHtml(props) {
           <p>{props.description}</p>
         </div>
         <div className="notes-actions">
-          {trash()}
+          <DeleteNote
+            id={props.id}
+            dataTrash={props.trash}
+            data={props.dataNote}
+            setDataNote={props.setDataNote}
+          />
           {starHtml()}
         </div>
       </div>
