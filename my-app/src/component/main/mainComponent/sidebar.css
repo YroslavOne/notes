@@ -41,7 +41,7 @@ margin-right: 10px;
 color: rgb(0, 166, 232);
 border-left: 3px solid rgb(0, 166, 232);
 }
-.sidebar-button label[type="radio"]:checked{
+.sidebar-button input[type="radio"]:checked{
     color: rgb(0, 166, 232);
     border-left: 3px solid rgb(0, 166, 232);
     

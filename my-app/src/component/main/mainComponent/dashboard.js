@@ -7,6 +7,7 @@ import { Plus } from 'react-bootstrap-icons';
 
 function Dashboard(props) {
   const [dataNote, setDataNote] = useState(props.data);
+  // console.log(props.category)
   // const buttonTags = () => {
   //   ArrayTags.map((ArrayObj, index) => (
   //     <button style={{ background: ArrayObj.color }}>ArrayObj.tag</button>
@@ -31,7 +32,7 @@ function Dashboard(props) {
         <СreateNote dataTag={ArrayTags} setData={setDataNote} />
       </div>
       <div>
-        <Notes data={dataNote} dataTag={ArrayTags} />
+        <Notes data={dataNote} dataTag={ArrayTags} thisCategory={props.category}/>
       </div>
     </div>
   );

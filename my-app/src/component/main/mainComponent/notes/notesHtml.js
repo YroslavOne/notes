@@ -4,6 +4,7 @@ import { Star } from 'react-bootstrap-icons';
 import { StarFill } from 'react-bootstrap-icons';
 import { useState } from 'react';
 import TagColor from './functionNote/tagColor';
+import deleteNote from './functionNote/delete'
 import './notesHtml.css';
 // import AddFavorites from './workNote/addFavorites';
 
@@ -21,13 +22,13 @@ function NotesHtml(props) {
   let trash = () => {
     if (props.trash === true) {
       return (
-        <button className="button-notes">
-          <Trash3Fill />
+        <button onClick={(e)=>deleteNote(props.id)} className="button-notes">
+          < Trash3Fill  />
         </button>
       );
     } else {
       return (
-        <button className="button-notes">
+        <button onClick={(e)=>deleteNote(props.id )} className="button-notes">
           <Trash3 />
         </button>
       );
@@ -59,15 +60,14 @@ function NotesHtml(props) {
     console.log(props.favorites)
   }
 
-  
 
   return (
-    <li onClick={(e)=>editNote(e.target.value)} className="notes">
+    <li  className="notes">
       <TagColor tag={props.tag} dataTag={props.dataTag}/>
       <div className='notes-group'>
-      <div className="notes-text">
+      <div onClick={(e)=>editNote(e.target.value)} className="notes-text">
         <h2>{title}</h2>
-        <p onClick={handleChange}>{description}</p>
+        <p >{description}</p>
       </div>
       <div className="notes-actions">
         {trash()}

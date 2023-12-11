@@ -1,47 +1,36 @@
 import { Trash3 } from 'react-bootstrap-icons';
 import { Star } from 'react-bootstrap-icons';
 import { Clipboard2 } from 'react-bootstrap-icons';
+import { useState } from 'react';
 import './sidebar.css'
 
 function Sidebar(props){
+const [category, setCategory] = useState("All")
 
-function radioChange(e){
-  const dataFilter =  props.data.filter(ObjectElem=>ObjectElem.trash !== true)
-    props.setData(dataFilter)
-  
-  if(e === "All"){
-    const dataFilter =  props.data.filter(ObjectElem=>ObjectElem.trash !== true)
-    props.setData(dataFilter)
-  } else { 
-    if(e === "Trash"){
-      const dataFilter =  props.data.filter(ObjectElem=>ObjectElem.trash === true)
-      props.setData(dataFilter)
-  } else {
-    if (e === "Favorites"){
-      const dataFilter =  props.data.filter(ObjectElem=>ObjectElem.favorites === true)
-      props.setData(dataFilter)}
-    
-  } 
-  }
-}
+  props.setSelectCategory(category)
+
+
+// function radioChange(e){
+//   props.setSelectCategory("All")
+// }
   
     return (
     <div className="sidebar">
       <input type="text" name="search" placeholder='...search' className='search_main'></input>
       <div className='radio-button'>
       
-      <label onChange={e => radioChange(e.target.value)} for="All" className='sidebar-button'><Clipboard2 className='sidebar-icon-button'/>
+      <label onChange={e => setCategory(e.target.value)} for="All" className='sidebar-button'><Clipboard2 className='sidebar-icon-button'/>
       <input type="radio" id="All" name="drone" value="All"/>
       <a>All notes</a>
       </label>
       
-      <label onChange={e => radioChange(e.target.value)} for="Trash"  className='sidebar-button'>  <Trash3 className='sidebar-icon-button'/>
+      <label onChange={e => setCategory(e.target.value)} for="Trash"  className='sidebar-button'>  <Trash3 className='sidebar-icon-button'/>
       <input type="radio" id="Trash" name="drone" value="Trash"/>
       <a>Trash</a>
       </label>
 
       
-      <label onChange={e => radioChange(e.target.value)} for="Favorites"  className='sidebar-button'><Star className='sidebar-icon-button'/>
+      <label onChange={e => setCategory(e.target.value)} for="Favorites"  className='sidebar-button'><Star className='sidebar-icon-button'/>
       <input type="radio" id="Favorites" name="drone" value="Favorites"/>
       <a>Favorites</a>
       </label>
