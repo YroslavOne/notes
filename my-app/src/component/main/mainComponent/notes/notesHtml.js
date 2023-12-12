@@ -1,8 +1,7 @@
-import { Star } from 'react-bootstrap-icons';
-import { StarFill } from 'react-bootstrap-icons';
-import { useState } from 'react';
+
 import TagColor from './functionNote/tagColor';
 import DeleteNote from './functionNote/delete';
+import FavoritesNote from './functionNote/favorites';
 import './notesHtml.css';
 // import AddFavorites from './workNote/addFavorites';
 
@@ -10,22 +9,7 @@ function NotesHtml(props) {
   // const [dataNote, setDataNote] = useState(props.setData);
   // console.log(dataNote);
 
-  let favorites = props.favorites;
-  const starHtml = () => {
-    if (favorites === true) {
-      return (
-        <button className="button-notes">
-          <StarFill/>
-        </button>
-      );
-    } else {
-      return (
-        <button className="button-notes">
-          <Star />
-        </button>
-      );
-    }
-  };
+
 
   function editNote(e) {
     console.log(props.title);
@@ -50,7 +34,11 @@ function NotesHtml(props) {
             data={props.data}
             setData={props.setData}
           />
-          {starHtml()}
+          <FavoritesNote
+          id={props.id}
+          dataFavorites={props.favorites}
+          data={props.data}
+          />
         </div>
       </div>
     </li>
