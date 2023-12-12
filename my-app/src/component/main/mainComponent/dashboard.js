@@ -2,17 +2,21 @@ import Notes from './notes/notes';
 import СreateNote from './notes/functionNote/createNote';
 import './dashboard.css';
 import ArrayTags from '../../../dataTag';
+import ArrayNotes from '../../../data.js';
 import { useState } from 'react';
 import { Plus } from 'react-bootstrap-icons';
 
 function Dashboard(props) {
-  const [dataNote, setDataNote] = useState(props.data);
-  // console.log(props.category)
-  // const buttonTags = () => {
-  //   ArrayTags.map((ArrayObj, index) => (
-  //     <button style={{ background: ArrayObj.color }}>ArrayObj.tag</button>
-  //   ));
-  // };
+  
+
+  if (localStorage.arrayNote) {
+  } else {
+    localStorage.arrayNote = JSON.stringify(ArrayNotes);
+  }
+  let data = JSON.parse(localStorage?.arrayNote);
+
+  const [dataNote, setDataNote] = useState(data);
+
 
   return (
     <div className="dashboard">
