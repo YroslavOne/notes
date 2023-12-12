@@ -5,8 +5,7 @@ import NotesHtml from './notesHtml.js';
 function Notes(props) {
   const [thisdataNote, setThisDataNote] = useState(props.data);
   let dataNote = thisdataNote;
-
-  console.log(dataNote);
+  // console.log(dataNote);
   if (props.thisCategory === 'All') {
     dataNote = props.data.filter((ObjectElem) => ObjectElem.trash !== true);
   } else {
@@ -39,7 +38,7 @@ function Notes(props) {
             favorites={ArrayObj.favorites}
             key={ArrayObj.key}
             setdata={setThisDataNote}
-            data={thisdataNote}
+            data={props.data}
           />
         ))}
       </ul>
