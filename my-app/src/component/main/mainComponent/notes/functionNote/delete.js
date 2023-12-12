@@ -1,27 +1,33 @@
 import { Trash3 } from 'react-bootstrap-icons';
 import { Trash3Fill } from 'react-bootstrap-icons';
+import { useState } from 'react';
 
 function DeleteNote(props) {
+const [thrashTrue, Settrash] = useState(props.dataTrash)
   function deleteNotes() {
-    const dataNote = JSON.parse(localStorage.arrayNote);
-    dataNote.map((Object, index) => {
+    const arrayDataNote = JSON.parse(localStorage.arrayNote);
+    arrayDataNote.map((Object, index) => {
       if (Object.id === props.id) {
         if (Object.trash === true) {
-          dataNote.splice(index, 1);
+            arrayDataNote.splice(index, 1);
+            
         } else {
-          dataNote[index].trash = true;
+            arrayDataNote[index].trash = true;
+            Settrash(true)
         }
       }
     });
-    localStorage.arrayNote = JSON.stringify(dataNote);
-    console.log(dataNote);
+    localStorage.arrayNote = JSON.stringify(arrayDataNote);
+    console.log(arrayDataNote);
     console.log(props.data);
-    // props.setDataNote(dataNote);
+    props.setData(arrayDataNote)
   }
 
   // props.setDataNote(dataNote);
   // console.log(dataNote)
-  if (props.dataTrash === true) {
+  
+  
+  if (thrashTrue === true) {
     return (
       <button onClick={(e) => deleteNotes(props.id)} className="button-notes">
         <Trash3Fill />
@@ -35,5 +41,6 @@ function DeleteNote(props) {
     );
   }
 }
+// return(reternTrash)
 
 export default DeleteNote;

@@ -4,7 +4,7 @@ function TagColor(props){
 
 
     let tagColor = () => {
-      props.tag.map((tagObj) => {
+      props.tag.map((tagObj, index) => {
       objDataTag = {
         color: filterDataTeg(tagObj),
         height: 0,
@@ -25,7 +25,7 @@ function TagColor(props){
     return(
         <div className="line-tags">
         {tagColor().map((elementColorTag, index) => (
-            <div style={{ background: elementColorTag.color, height: elementColorTag.height}}></div>
+            <div key={index} style={{ background: elementColorTag.color, height: elementColorTag.height}}></div>
           ))}
         </div>
     )

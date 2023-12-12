@@ -13,9 +13,10 @@ function Dashboard(props) {
   } else {
     localStorage.arrayNote = JSON.stringify(ArrayNotes);
   }
-  let data = JSON.parse(localStorage?.arrayNote);
+  let dataNotes = JSON.parse(localStorage?.arrayNote);
 
-  const [dataNote, setDataNote] = useState(data);
+
+  const [dataNote, setDataNote] = useState(dataNotes);
 
 
   return (
@@ -26,7 +27,7 @@ function Dashboard(props) {
         </button>
         <div className="dashboard-tag">
           {ArrayTags.map((ArrayObj, index) => (
-            <button style={{ background: ArrayObj.color }}>
+            <button key={index} style={{ background: ArrayObj.color }}>
               {ArrayObj.name}
             </button>
           ))}
@@ -40,6 +41,7 @@ function Dashboard(props) {
           data={dataNote}
           dataTag={ArrayTags}
           thisCategory={props.category}
+          setData={setDataNote}
         />
       </div>
     </div>

@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import NotesHtml from './notesHtml.js';
 
 function Notes(props) {
-  const [thisdataNote, setThisDataNote] = useState(props.data);
-  let dataNote = thisdataNote;
+  // const [thisdataNote, setThisDataNote] = useState(props.data);
+  let dataNote = props.data;
   // console.log(dataNote);
   if (props.thisCategory === 'All') {
     dataNote = props.data.filter((ObjectElem) => ObjectElem.trash !== true);
@@ -36,8 +36,8 @@ function Notes(props) {
             tag={ArrayObj.tag}
             trash={ArrayObj.trash}
             favorites={ArrayObj.favorites}
-            key={ArrayObj.key}
-            setdata={setThisDataNote}
+            key={index}
+            setdata={props.setData}
             data={props.data}
           />
         ))}

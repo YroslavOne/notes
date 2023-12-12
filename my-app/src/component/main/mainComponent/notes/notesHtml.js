@@ -7,15 +7,15 @@ import './notesHtml.css';
 // import AddFavorites from './workNote/addFavorites';
 
 function NotesHtml(props) {
-  const [dataNote, setDataNote] = useState(props.data);
-  console.log(dataNote);
+  // const [dataNote, setDataNote] = useState(props.setData);
+  // console.log(dataNote);
 
   let favorites = props.favorites;
   const starHtml = () => {
     if (favorites === true) {
       return (
         <button className="button-notes">
-          <StarFill />
+          <StarFill/>
         </button>
       );
     } else {
@@ -36,7 +36,7 @@ function NotesHtml(props) {
   }
 
   return (
-    <li className="notes" key={props.key}>
+    <li className="notes" onClick={(e)=>console.log(e.target)} key={props.id}>
       <TagColor tag={props.tag} dataTag={props.dataTag} />
       <div className="notes-group">
         <div onClick={(e) => editNote(e.target.value)} className="notes-text">
@@ -47,8 +47,8 @@ function NotesHtml(props) {
           <DeleteNote
             id={props.id}
             dataTrash={props.trash}
-            data={props.dataNote}
-            setDataNote={props.setDataNote}
+            data={props.data}
+            setData={props.setData}
           />
           {starHtml()}
         </div>

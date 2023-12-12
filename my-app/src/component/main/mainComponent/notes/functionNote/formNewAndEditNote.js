@@ -66,8 +66,8 @@ function FormNote(props) {
           onChange={(e) => setValueSelect(e.target.selectedOptions)}
           multiple
         >
-          {props.dataTag.map((tagElem) => (
-            <option value={tagElem.name}>{tagElem.name}</option>
+          {props.dataTag.map((tagElem, index) => (
+            <option key={index} value={tagElem.name}>{tagElem.name}</option>
           ))}
         </select>
         <div>
