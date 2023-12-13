@@ -26,16 +26,16 @@ function FormNote(props) {
       trash: false,
       favorites: valueFavorites,
     };
-    let arrayDataNote = JSON.parse(localStorage.arrayNote);
-    arrayDataNote.push(objCreateNote);
-    localStorage.arrayNote = JSON.stringify(arrayDataNote);
-    props.setData(arrayDataNote);
-    // props.setObj(objCreateNote);
+    
+    
 
     setValueInput('');
     setValueTexarea('');
-    setValueSelect([]);
-    setValueFavorites('false');
+    setValueSelect(props.selectValue);
+    setValueFavorites(false);
+    props.setObjectData(objCreateNote);
+    objCreateNote = {}
+    props.setDicplay(false)
   }
 
   return (
@@ -73,7 +73,7 @@ function FormNote(props) {
         <div>
           <input
             type="checkbox"
-            value={valueFavorites}
+            checked={valueFavorites} 
             id="favorites"
             name="favorites"
             onChange={(e) => setValueFavorites(e.target.checked)}

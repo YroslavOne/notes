@@ -3,8 +3,8 @@ import СreateNote from './notes/functionNote/createNote';
 import './dashboard.css';
 import ArrayTags from '../../../dataTag';
 import ArrayNotes from '../../../data.js';
-import { useState } from 'react';
-import { Plus } from 'react-bootstrap-icons';
+import { useState, useEffect } from 'react';
+import { Display, Plus } from 'react-bootstrap-icons';
 
 function Dashboard(props) {
   
@@ -14,15 +14,23 @@ function Dashboard(props) {
     localStorage.arrayNote = JSON.stringify(ArrayNotes);
   }
   let dataNotes = JSON.parse(localStorage?.arrayNote);
+// function onClickAround(e){
+//   setDataNote(JSON.parse(localStorage?.arrayNote));
+// }
+  useEffect(()=> {
+    setDataNote(JSON.parse(localStorage?.arrayNote));
+})
 
-
+  
   const [dataNote, setDataNote] = useState(dataNotes);
-
-
+const [onDisplay, setDicplay] = useState(false)
+function displayOpen(){
+    setDicplay(!onDisplay)
+}
   return (
     <div className="dashboard">
       <div className="top-dashboard-line">
-        <button className="add-button">
+        <button onClick={(e)=>displayOpen()} className="add-button">
           <Plus />
         </button>
         <div className="dashboard-tag">
@@ -33,15 +41,17 @@ function Dashboard(props) {
           ))}
         </div>
       </div>
-      <div>
-        <СreateNote dataTag={ArrayTags} setData={setDataNote} />
-      </div>
+      {onDisplay && (<div>
+        <СreateNote dataTag={ArrayTags} setData={setDataNote} setDicplay={setDicplay} onDisplay={onDisplay}/>
+      </div>)}
+      
       <div>
         <Notes
           data={dataNote}
           dataTag={ArrayTags}
           thisCategory={props.category}
           setData={setDataNote}
+          
         />
       </div>
     </div>
