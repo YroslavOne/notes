@@ -5,9 +5,16 @@ import ArrayTags from '../../../dataTag';
 import ArrayNotes from '../../../data.js';
 import { useState, useEffect } from 'react';
 import { Display, Plus } from 'react-bootstrap-icons';
+import { Context } from '../Context';
+
 
 function Dashboard(props) {
   
+
+const updateLocalStorage=(arrayNote)=>{
+  localStorage.arrayNote = JSON.stringify(arrayNote);
+  setDataNote(arrayNote)
+}
 
   if (localStorage.arrayNote) {
   } else {
@@ -28,6 +35,9 @@ function displayOpen(){
     setDicplay(!onDisplay)
 }
   return (
+    <Context.Provider value={{
+      updateLocalStorage
+    }}>
     <div className="dashboard">
       <div className="top-dashboard-line">
         <button onClick={(e)=>displayOpen()} className="add-button">
@@ -55,6 +65,7 @@ function displayOpen(){
         />
       </div>
     </div>
+    </Context.Provider>
   );
 }
 export default Dashboard;

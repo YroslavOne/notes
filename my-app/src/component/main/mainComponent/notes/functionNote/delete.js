@@ -1,12 +1,14 @@
 import { Trash3 } from 'react-bootstrap-icons';
 import { Trash3Fill } from 'react-bootstrap-icons';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 function DeleteNote(props) {
+
+  const {} = useContext()
   const [thrashTrue, Settrash] = useState(props.dataTrash);
 //   const arrayDataNote = JSON.parse(localStorage.arrayNote);
   
-  function deleteNotes() {
+  function updateLocalStorage() {
     const arrayDataNote = JSON.parse(localStorage.arrayNote);
     arrayDataNote.map((Object, index) => {
       if (Object.id === props.id) {
