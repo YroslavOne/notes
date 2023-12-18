@@ -11,9 +11,13 @@ import { Context } from '../Context';
 function Dashboard(props) {
   
 
-const updateLocalStorage=(arrayNote)=>{
+const updateLocalStorageOki=(arrayNote)=>{
   localStorage.arrayNote = JSON.stringify(arrayNote);
   setDataNote(arrayNote)
+  console.log("chekin")
+}
+const dateLocalStorageOki = ()=>{
+  return dataNote
 }
 
   if (localStorage.arrayNote) {
@@ -21,12 +25,6 @@ const updateLocalStorage=(arrayNote)=>{
     localStorage.arrayNote = JSON.stringify(ArrayNotes);
   }
   let dataNotes = JSON.parse(localStorage?.arrayNote);
-// function onClickAround(e){
-//   setDataNote(JSON.parse(localStorage?.arrayNote));
-// }
-  useEffect(()=> {
-    setDataNote(JSON.parse(localStorage?.arrayNote));
-})
 
   
   const [dataNote, setDataNote] = useState(dataNotes);
@@ -36,7 +34,7 @@ function displayOpen(){
 }
   return (
     <Context.Provider value={{
-      updateLocalStorage
+      updateLocalStorageOki, dateLocalStorageOki
     }}>
     <div className="dashboard">
       <div className="top-dashboard-line">

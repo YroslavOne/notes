@@ -1,13 +1,14 @@
 import './createNote.css';
 import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Context } from '../../../Context';
 
 function FormNote(props) {
   const [valueInput, setValueInput] = useState(props.inputValue);
   const [valueTexarea, setValueTexarea] = useState(props.texareaValue);
   const [valueSelect, setValueSelect] = useState(props.selectValue);
   const [valueFavorites, setValueFavorites] = useState(props.favoritesValue);
-
+  const {updateLocalStorageOki, dateLocalStorageOki} = useContext(Context)
   function forEachValueSelect() {
     let arrayValueSelect = [];
     for (let i = 0; i < valueSelect.length; i++) {
@@ -27,7 +28,17 @@ function FormNote(props) {
       favorites: valueFavorites,
     };
     
-    
+    let arrayDataNote = dateLocalStorageOki();
+  const filterArray = arrayDataNote.filter((filterArrayDataNote)=>
+filterArrayDataNote.id === arrayDataNote.id)
+  if(filterArray){
+    arrayDataNote.push(objCreateNote);
+    updateLocalStorageOki(arrayDataNote);
+  }
+  else{
+    arrayDataNote.push(objCreateNote);
+    updateLocalStorageOki(arrayDataNote);
+  }
 
     setValueInput('');
     setValueTexarea('');

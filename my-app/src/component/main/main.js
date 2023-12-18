@@ -7,7 +7,7 @@ import { useState, useContext } from 'react';
 function Main() {
 
   const [selectCategory, setSelectCategory] = useState('All');
-  const dataForNote = useContext(js);
+  // const dataForNote = useContext(js);
  
 
 
