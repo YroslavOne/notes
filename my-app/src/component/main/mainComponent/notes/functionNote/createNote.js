@@ -12,19 +12,6 @@ function CreateNote(props) {
   // const [twoObjectForData, setTwoObjectForData] = useState(objectForData)
   // setTwoObjectForData(objectForData)
 
-
-  if(objectForData !== ""){
-  let arrayDataNote = JSON.parse(localStorage.arrayNote);
-  const filterArray = arrayDataNote.filter((filterArrayDataNote)=>
-filterArrayDataNote.id === objectForData.id)
-  if(filterArray){
-    arrayDataNote.push(objectForData);
-  localStorage.arrayNote = JSON.stringify(arrayDataNote);
-  setObjectForData("")
-  }
-  setObjectForData("")
-}
-
   return (
     <FormNote
       favoritesValue={favoritesValue}
