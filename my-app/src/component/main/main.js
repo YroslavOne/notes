@@ -13,7 +13,7 @@ function Main() {
 
   return (
     <div className="main">
-      <Sidebar setSelectCategory={setSelectCategory} />
+      
       <Dashboard
         category={selectCategory}
       />

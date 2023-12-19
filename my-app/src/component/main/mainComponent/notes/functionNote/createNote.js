@@ -4,10 +4,10 @@ import FormNote from './formNewAndEditNote.js';
 import { v4 as uuidv4 } from 'uuid';
 
 function CreateNote(props) {
-  let inputValue = '';
-  let texareaValue = '';
-  let selectValue = [''];
-  let favoritesValue = false;
+  let inputValue = props.inputValue;
+  let texareaValue = props.texareaValue;
+  let selectValue = props.selectValue;
+  let favoritesValue = props.favoritesValue;
   const [objectForData, setObjectForData] = useState("")
   // const [twoObjectForData, setTwoObjectForData] = useState(objectForData)
   // setTwoObjectForData(objectForData)

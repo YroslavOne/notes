@@ -1,11 +1,14 @@
 import { Star } from 'react-bootstrap-icons';
 import { StarFill } from 'react-bootstrap-icons';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Context } from '../../../Context';
+
 
 function FavoritesNote(props) {
+  const {updateLocalStorageOki, dateLocalStorageOki} = useContext(Context)
   const [starTrue, setStarTrue] = useState(props.dataFavorites);
   function favoritesNotes() {
-    const arrayDataNote = JSON.parse(localStorage.arrayNote);
+    const arrayDataNote = dateLocalStorageOki();
     arrayDataNote.map((Object, index) => {
       if (Object.id === props.id) {
         if (Object.favorites === true) {
@@ -17,7 +20,7 @@ function FavoritesNote(props) {
         }
       }
     });
-    localStorage.arrayNote = JSON.stringify(arrayDataNote);
+    updateLocalStorageOki(arrayDataNote);
   }
 
   // let favorites = props.favorites;
