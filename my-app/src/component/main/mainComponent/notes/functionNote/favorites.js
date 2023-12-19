@@ -23,8 +23,6 @@ function FavoritesNote(props) {
     updateLocalStorageOki(arrayDataNote);
   }
 
-  // let favorites = props.favorites;
-
   if (starTrue === true) {
     return (
       <button onClick={(e) => favoritesNotes()} className="button-notes">

@@ -1,6 +1,5 @@
 import './App.css';
 import Main from './main/main.js';
-import React, { useState, useEffect } from 'react';
 
 function App() {
   localStorage.clear()

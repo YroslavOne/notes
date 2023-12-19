@@ -1,13 +1,12 @@
 import { Trash3 } from 'react-bootstrap-icons';
 import { Trash3Fill } from 'react-bootstrap-icons';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { Context } from '../../../Context';
 
 function DeleteNote(props) {
 
   const {updateLocalStorageOki, dateLocalStorageOki} = useContext(Context)
   const [thrashTrue, Settrash] = useState(props.dataTrash);
-//   const arrayDataNote = JSON.parse(localStorage.arrayNote);
   
   function deleteNotes() {
     const arrayDataNote = dateLocalStorageOki();
@@ -42,6 +41,5 @@ function DeleteNote(props) {
     );
   }
 }
-// return(reternTrash)
 
 export default DeleteNote;

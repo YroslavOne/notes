@@ -1,5 +1,4 @@
 import './createNote.css';
-import { v4 as uuidv4 } from 'uuid';
 import { useState, useContext } from 'react';
 import { Context } from '../../../Context';
 
@@ -29,7 +28,6 @@ function FormNote(props) {
 
   const filterArray = arrayDataNote.filter((filterArrayDataNote)=>
   filterArrayDataNote.id === props.id)
-console.log(filterArray.length)
   if(filterArray.length>0){
     arrayDataNote.map((Object, index) => {
       if (Object.id === props.id) {
@@ -59,7 +57,6 @@ console.log(filterArray.length)
     setValueTexarea('');
     setValueSelect(props.selectValue);
     setValueFavorites(false);
-    // objCreateNote = {}
     props.setDisplay(false)
   }
 
@@ -83,7 +80,6 @@ console.log(filterArray.length)
           placeholder="Description"
           onChange={(e) => setValueTexarea(e.target.value)}
         ></textarea>
-        {/* <input type="text" className="create-notes-description"></input> */}
         <select
           type="select"
           className="create-notes-tag"

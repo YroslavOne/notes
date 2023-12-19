@@ -3,8 +3,8 @@ import СreateNote from './notes/functionNote/createNote';
 import './dashboard.css';
 import ArrayTags from '../../../dataTag';
 import ArrayNotes from '../../../data.js';
-import { useState, useEffect } from 'react';
-import { Display, Plus } from 'react-bootstrap-icons';
+import { useState } from 'react';
+import {  Plus } from 'react-bootstrap-icons';
 import { Context } from '../Context';
 import Sidebar from './sidebar';
 import { v4 as uuidv4 } from 'uuid';
@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 
-function Dashboard(props) {
+function Dashboard() {
 
   if (localStorage.arrayNote) {
   } else {

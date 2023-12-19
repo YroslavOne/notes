@@ -5,18 +5,14 @@ import FavoritesNote from './functionNote/favorites';
 import './notesHtml.css';
 import { useContext } from 'react';
 import { Context } from '../../Context';
-// import AddFavorites from './workNote/addFavorites';
 
 function NotesHtml(props) {
-  // const [dataNote, setDataNote] = useState(props.setData);
-  // console.log(dataNote);
 
   const {displayOpen} = useContext(Context)
 
 
   function editNote(e) {
     displayOpen(props.title,props.description, props.tag, props.favorites, props.id )
-    console.log(props.tag);
     props.setDisplay(true)
   }
 

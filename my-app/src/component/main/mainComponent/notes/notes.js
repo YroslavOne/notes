@@ -1,5 +1,4 @@
-// import ArrayNotes from '../../../../data.js';
-import React, { useState } from 'react';
+
 import NotesHtml from './notesHtml.js';
 
 
