@@ -2,7 +2,7 @@ import './App.css';
 import Main from './main/main.js';
 
 function App() {
-  localStorage.clear()
+  // localStorage.clear()
   return (
     <div className="App">
       <Main/>

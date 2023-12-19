@@ -66,8 +66,6 @@ if (selectCategory === 'All') {
 return dataInNote
 }
 
- 
-
   
 
 function displayOpen(itInputValue, itTexareaValue, itSelectValue, itFavoritesValue, itId){
