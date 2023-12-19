@@ -20,6 +20,7 @@ function Notes(props) {
             key={index}
             setdata={props.setData}
             data={props.data}
+            setDisplay={props.setDisplay}
           />
         ))}
       </ul>

@@ -15,21 +15,18 @@ function NotesHtml(props) {
 
 
   function editNote(e) {
-    displayOpen(props.title,props.description, [""], props.favorites )
-    // console.log(props.title);
-    console.log(props.description);
+    displayOpen(props.title,props.description, props.tag, props.favorites, props.id )
     console.log(props.tag);
-    console.log(props.id);
-    console.log(props.favorites);
+    props.setDisplay(true)
   }
 
   return (
-    <li className="notes" onClick={(e)=>console.log(e.target)} key={props.id}>
+    <li className="notes" key={props.id}>
       <TagColor tag={props.tag} dataTag={props.dataTag} />
       <div className="notes-group">
-        <div onClick={(e) => editNote(e.target.value)} className="notes-text">
-          <h2>{props.title}</h2>
-          <p>{props.description}</p>
+        <div  className="notes-text">
+          <h2 onClick={(e) => editNote(e.target.value)}>{props.title}</h2>
+          <p onClick={(e) => editNote(e.target.value)}>{props.description}</p>
         </div>
         <div className="notes-actions">
           <DeleteNote

@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react';
 import { Display, Plus } from 'react-bootstrap-icons';
 import { Context } from '../Context';
 import Sidebar from './sidebar';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 
@@ -20,10 +22,11 @@ function Dashboard(props) {
 
   const [dataNote, setDataNote] = useState(dataNotes);
   const [filterDataNote, setFilterDataNote] = useState(dataNotes);
-  const [onDisplay, setDicplay] = useState(false)
+  const [onDisplay, setDisplay] = useState(false)
   const [selectCategory, setSelectCategory] = useState('All');
   const [inputValue, setInputValue] = useState('');
   const [texareaValue, setTexareaValue] = useState('');
+  const [itId, setItId] = useState('');
   const [selectValue, setSelectValue] = useState(['']);
   const [favoritesValue, setFavoritesValue] = useState(false);
 
@@ -67,12 +70,13 @@ return dataInNote
 
   
 
-function displayOpen(itInputValue, itTexareaValue, itSelectValue, itFavoritesValue){
+function displayOpen(itInputValue, itTexareaValue, itSelectValue, itFavoritesValue, itId){
   setInputValue(itInputValue)
   setTexareaValue(itTexareaValue)
   setSelectValue(itSelectValue)
   setFavoritesValue(itFavoritesValue)
-    setDicplay(!onDisplay)
+  setItId(itId)
+    setDisplay(!onDisplay)
 }
 
 
@@ -84,7 +88,7 @@ function displayOpen(itInputValue, itTexareaValue, itSelectValue, itFavoritesVal
       <Sidebar setSelectCategory={setSelectCategory} />
     <div className="dashboard">
       <div className="top-dashboard-line">
-        <button onClick={(e)=>displayOpen("", "", [''], false)} className="add-button">
+        <button onClick={(e)=>displayOpen("", "", [''], false, uuidv4())} className="add-button">
           <Plus />
         </button>
         <div className="dashboard-tag">
@@ -96,13 +100,14 @@ function displayOpen(itInputValue, itTexareaValue, itSelectValue, itFavoritesVal
         </div>
       </div>
       {onDisplay && (<div>
-        <СreateNote dataTag={ArrayTags} inputValue={inputValue} texareaValue={texareaValue} selectValue={selectValue} favoritesValue={favoritesValue} setDicplay={setDicplay} onDisplay={onDisplay}/>
+        <СreateNote dataTag={ArrayTags} itId={itId} inputValue={inputValue} texareaValue={texareaValue} selectValue={selectValue} favoritesValue={favoritesValue} setDisplay={setDisplay} onDisplay={onDisplay}/>
       </div>)}
       
       <div>
         <Notes
           data={filterDataNote}
           dataTag={ArrayTags}
+          setDisplay={setDisplay}
           
         />
       </div>

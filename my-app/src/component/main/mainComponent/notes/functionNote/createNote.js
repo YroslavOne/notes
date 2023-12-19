@@ -8,9 +8,7 @@ function CreateNote(props) {
   let texareaValue = props.texareaValue;
   let selectValue = props.selectValue;
   let favoritesValue = props.favoritesValue;
-  const [objectForData, setObjectForData] = useState("")
-  // const [twoObjectForData, setTwoObjectForData] = useState(objectForData)
-  // setTwoObjectForData(objectForData)
+  let id = props.itId
 
   return (
     <FormNote
@@ -18,10 +16,9 @@ function CreateNote(props) {
       selectValue={selectValue}
       inputValue={inputValue}
       texareaValue={texareaValue}
-      setObjectData ={setObjectForData}
-      // setData={props.setData}
       dataTag={props.dataTag}
-      setDicplay={props.setDicplay}
+      setDisplay={props.setDisplay}
+      id={id}
     />
   );
 }
