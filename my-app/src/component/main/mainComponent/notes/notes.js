@@ -1,9 +1,6 @@
-
 import NotesHtml from './notesHtml.js';
 
-
 function Notes(props) {
-
   return (
     <div>
       <ul>

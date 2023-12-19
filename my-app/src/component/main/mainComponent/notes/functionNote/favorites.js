@@ -3,9 +3,8 @@ import { StarFill } from 'react-bootstrap-icons';
 import { useState, useContext } from 'react';
 import { Context } from '../../../Context';
 
-
 function FavoritesNote(props) {
-  const {updateLocalStorageOki, dateLocalStorageOki} = useContext(Context)
+  const { updateLocalStorageOki, dateLocalStorageOki } = useContext(Context);
   const [starTrue, setStarTrue] = useState(props.dataFavorites);
   function favoritesNotes() {
     const arrayDataNote = dateLocalStorageOki();

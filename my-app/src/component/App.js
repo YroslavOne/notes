@@ -5,7 +5,7 @@ function App() {
   // localStorage.clear()
   return (
     <div className="App">
-      <Main/>
+      <Main />
     </div>
   );
 }

@@ -7,57 +7,60 @@ function FormNote(props) {
   const [valueTexarea, setValueTexarea] = useState(props.texareaValue);
   const [valueSelect, setValueSelect] = useState(props.selectValue);
   const [valueFavorites, setValueFavorites] = useState(props.favoritesValue);
-  const {updateLocalStorageOki, dateLocalStorageOki} = useContext(Context)
+  const { updateLocalStorageOki, dateLocalStorageOki } = useContext(Context);
   function forEachValueSelect() {
     let arrayValueSelect = [];
-    if(valueSelect[0] === "shopping" || valueSelect[0]==="business" || valueSelect[0]==="other things"){
-      arrayValueSelect = valueSelect
-
-    } else{
+    if (
+      valueSelect[0] === 'shopping' ||
+      valueSelect[0] === 'business' ||
+      valueSelect[0] === 'other things'
+    ) {
+      arrayValueSelect = valueSelect;
+    } else {
       for (let i = 0; i < valueSelect.length; i++) {
-        arrayValueSelect.push(valueSelect[i].value);}
+        arrayValueSelect.push(valueSelect[i].value);
+      }
     }
     return arrayValueSelect;
   }
 
   function saveNote() {
     let arraeValueSelected = forEachValueSelect();
-    const arrayDataNote = dateLocalStorageOki()
-      
-    
+    const arrayDataNote = dateLocalStorageOki();
 
-  const filterArray = arrayDataNote.filter((filterArrayDataNote)=>
-  filterArrayDataNote.id === props.id)
-  if(filterArray.length>0){
-    arrayDataNote.map((Object, index) => {
-      if (Object.id === props.id) {
-        Object.id = props.id
-        Object.title = valueInput
-        Object.description = valueTexarea
-        Object.tag = arraeValueSelected
-        Object.trash = false
-        Object.favorites = valueFavorites
-      }})
-    updateLocalStorageOki(arrayDataNote);
-  }
-  else{
-    let objCreateNote = {
-      id: props.id,
-      title: valueInput,
-      description: valueTexarea,
-      tag: arraeValueSelected,
-      trash: false,
-      favorites: valueFavorites,
-    };
-    arrayDataNote.push(objCreateNote);
-    updateLocalStorageOki(arrayDataNote);
-  }
+    const filterArray = arrayDataNote.filter(
+      (filterArrayDataNote) => filterArrayDataNote.id === props.id
+    );
+    if (filterArray.length > 0) {
+      arrayDataNote.map((Object, index) => {
+        if (Object.id === props.id) {
+          Object.id = props.id;
+          Object.title = valueInput;
+          Object.description = valueTexarea;
+          Object.tag = arraeValueSelected;
+          Object.trash = false;
+          Object.favorites = valueFavorites;
+        }
+      });
+      updateLocalStorageOki(arrayDataNote);
+    } else {
+      let objCreateNote = {
+        id: props.id,
+        title: valueInput,
+        description: valueTexarea,
+        tag: arraeValueSelected,
+        trash: false,
+        favorites: valueFavorites,
+      };
+      arrayDataNote.push(objCreateNote);
+      updateLocalStorageOki(arrayDataNote);
+    }
 
     setValueInput('');
     setValueTexarea('');
     setValueSelect(props.selectValue);
     setValueFavorites(false);
-    props.setDisplay(false)
+    props.setDisplay(false);
   }
 
   return (
@@ -88,13 +91,15 @@ function FormNote(props) {
           multiple
         >
           {props.dataTag.map((tagElem, index) => (
-            <option key={index} value={tagElem.name}>{tagElem.name}</option>
+            <option key={index} value={tagElem.name}>
+              {tagElem.name}
+            </option>
           ))}
         </select>
         <div>
           <input
             type="checkbox"
-            checked={valueFavorites} 
+            checked={valueFavorites}
             id="favorites"
             name="favorites"
             onChange={(e) => setValueFavorites(e.target.checked)}

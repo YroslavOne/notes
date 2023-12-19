@@ -3,15 +3,9 @@ import Dashboard from './mainComponent/dashboard';
 import './main.css';
 
 function Main() {
-
- 
-
-
   return (
     <div className="main">
-      
-      <Dashboard
-      />
+      <Dashboard />
     </div>
   );
 }

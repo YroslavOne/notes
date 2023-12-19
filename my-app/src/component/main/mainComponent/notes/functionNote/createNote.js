@@ -6,8 +6,7 @@ function CreateNote(props) {
   let texareaValue = props.texareaValue;
   let selectValue = props.selectValue;
   let favoritesValue = props.favoritesValue;
-  let id = props.itId
-  
+  let id = props.itId;
 
   return (
     <FormNote
