@@ -36,18 +36,31 @@ function Dashboard() {
     return dataNote;
   };
 
-  function filterArray(dataNote, selectCategory) {
-    let dataInNote = dataNote;
+  function filterArray(dataNote, selectCategory, valueSearch) {
+    let filterDataNotes
+const thisFilterDataNote = () => {if(valueSearch!==""){
+      filterDataNotes = dataNote.filter((Object)=>Object.title.includes(valueSearch))
+      console.log(filterDataNotes)
+      return filterDataNotes
+    } else{
+      filterDataNotes = dataNote
+      return filterDataNotes
+
+    }}
+    
+    let dataInNote = thisFilterDataNote();
+    
     if (selectCategory === 'All') {
-      dataInNote = dataNote.filter((ObjectElem) => ObjectElem.trash !== true);
+      dataInNote = thisFilterDataNote().filter((ObjectElem) => ObjectElem.trash !== true);
+      console.log(dataInNote)
       setFilterDataNote(dataInNote);
     } else {
       if (selectCategory === 'Trash') {
-        dataInNote = dataNote.filter((ObjectElem) => ObjectElem.trash === true);
+        dataInNote = thisFilterDataNote().filter((ObjectElem) => ObjectElem.trash === true);
         setFilterDataNote(dataInNote);
       } else {
         if (selectCategory === 'Favorites') {
-          dataInNote = dataNote.filter(
+          dataInNote = thisFilterDataNote().filter(
             (ObjectElem) =>
               (ObjectElem.favorites === true) & (ObjectElem.trash !== true)
           );

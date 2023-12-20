@@ -7,14 +7,27 @@ import { Context } from '../Context';
 
 function Sidebar(props) {
   const [category, setCategory] = useState('All');
+  const [valueSearch, setValueSearch] = useState("")
+  console.log(valueSearch)
 
   props.setSelectCategory(category);
   const { filterArray, dateLocalStorage } = useContext(Context);
 
   const dataNote = dateLocalStorage();
-  function plumbus(e) {
-    setCategory(e.target.value);
-    filterArray(dataNote, e.target.value);
+
+  const tapSearch=(value)=>{
+    setValueSearch(value)
+    senddataForFilter(category, value)
+  }
+
+  const tapButton=(value)=>{
+
+    setCategory(value)
+    senddataForFilter(value, valueSearch)
+  }
+
+  function senddataForFilter(itCategory, itValueSearch) {
+    filterArray(dataNote, itCategory, itValueSearch);
   }
 
   return (
@@ -24,10 +37,12 @@ function Sidebar(props) {
         name="search"
         placeholder="...search"
         className="search_main"
+        value={valueSearch}
+        onChange={(e)=>tapSearch(e.target.value)}
       ></input>
       <div className="radio-button">
         <label
-          onChange={(e) => plumbus(e)}
+          onChange={(e) => tapButton(e.target.value)}
           for="All"
           className="sidebar-button"
         >
@@ -37,7 +52,7 @@ function Sidebar(props) {
         </label>
 
         <label
-          onChange={(e) => plumbus(e)}
+         onChange={(e) => tapButton(e.target.value)}
           for="Trash"
           className="sidebar-button"
         >
@@ -48,7 +63,7 @@ function Sidebar(props) {
         </label>
 
         <label
-          onChange={(e) => plumbus(e)}
+          onChange={(e) => tapButton(e.target.value)}
           for="Favorites"
           className="sidebar-button"
         >
