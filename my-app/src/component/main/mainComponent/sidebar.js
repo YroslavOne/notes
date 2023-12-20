@@ -8,9 +8,9 @@ import { Context } from '../Context';
 function Sidebar(props) {
   const [category, setCategory] = useState('All');
   const [valueSearch, setValueSearch] = useState("")
-  console.log(valueSearch)
 
   props.setSelectCategory(category);
+  props.setValueSearch(valueSearch);
   const { filterArray, dateLocalStorage } = useContext(Context);
 
   const dataNote = dateLocalStorage();
@@ -27,7 +27,7 @@ function Sidebar(props) {
   }
 
   function senddataForFilter(itCategory, itValueSearch) {
-    filterArray(dataNote, itCategory, itValueSearch);
+    filterArray(dataNote, itCategory, itValueSearch, props.selectTag);
   }
 
   return (

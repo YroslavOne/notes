@@ -20,32 +20,69 @@ function Dashboard() {
   const [filterDataNote, setFilterDataNote] = useState(dataNotes);
   const [onDisplay, setOnDisplay] = useState(false);
   const [selectCategory, setSelectCategory] = useState('All');
+  const [valueSearch, setValueSearch] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [textareaValue, setTextareaValue] = useState('');
   const [itId, setItId] = useState('');
   const [selectValue, setSelectValue] = useState(['']);
   const [favoritesValue, setFavoritesValue] = useState(false);
+  const [selectTag, setSelectTag] = useState("All")
 
   const updateLocalStorage = (arrayNote) => {
     localStorage.arrayNote = JSON.stringify(arrayNote);
     setDataNote(arrayNote);
-    filterArray(arrayNote, selectCategory);
+    filterArray(arrayNote, selectCategory, valueSearch);
   };
 
   const dateLocalStorage = () => {
     return dataNote;
   };
 
-  function filterArray(dataNote, selectCategory, valueSearch) {
+
+function activeTag(value){
+  if (selectTag===value){
+    setSelectTag("All")
+    filterArray(dataNote, selectCategory, valueSearch, "All")
+  } else{
+    setSelectTag(value)
+    filterArray(dataNote, selectCategory, valueSearch, value)
+  }
+}
+
+  function filterArray(dataNote, selectCategory, valueSearch, selectTag) {
+
+    let FilterInTagDataNote = ()=>{
+      let thisFilterTagDataNote = []
+      if(selectTag!=="All"){
+        dataNote.map((Object)=>{
+          let truePut = false
+          Object.tag.map((tagElem)=>
+          { if(selectTag===tagElem){
+            truePut = true
+            return
+          }})
+          if(truePut===true){
+            thisFilterTagDataNote.push(Object)
+          }
+        })
+       
+        
+      } else {
+        thisFilterTagDataNote = dataNote
+      }
+      return thisFilterTagDataNote
+    }
+    console.log(FilterInTagDataNote())
+
+
     let filterDataNotes
-
-
-    const thisFilterDataNote = () => {if(valueSearch!==""){
-      filterDataNotes = dataNote.filter((Object)=>Object.title.includes(valueSearch))
+    const thisFilterDataNote = () => {
+      if(valueSearch!==""){
+      filterDataNotes = FilterInTagDataNote().filter((Object)=>Object.title.includes(valueSearch))
       console.log(filterDataNotes)
       return filterDataNotes
     } else{
-      filterDataNotes = dataNote
+      filterDataNotes = FilterInTagDataNote()
       return filterDataNotes
 
     }}
@@ -98,7 +135,7 @@ function Dashboard() {
       }}
     >
       <div className="main">
-        <Sidebar setSelectCategory={setSelectCategory} />
+        <Sidebar selectTag={selectTag} setSelectCategory={setSelectCategory} setValueSearch={setValueSearch} />
         <div className="dashboard">
           <div className="top-dashboard-line">
             <button
@@ -109,7 +146,7 @@ function Dashboard() {
             </button>
             <div className="dashboard-tag">
               {ArrayTags.map((ArrayObj, index) => (
-                <button key={index} style={{ background: ArrayObj.color }}>
+                <button key={index} onClick={(e)=> activeTag(ArrayObj.name)} style={{ background: ArrayObj.color }}>
                   {ArrayObj.name}
                 </button>
               ))}
