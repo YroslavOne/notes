@@ -38,7 +38,9 @@ function Dashboard() {
 
   function filterArray(dataNote, selectCategory, valueSearch) {
     let filterDataNotes
-const thisFilterDataNote = () => {if(valueSearch!==""){
+
+
+    const thisFilterDataNote = () => {if(valueSearch!==""){
       filterDataNotes = dataNote.filter((Object)=>Object.title.includes(valueSearch))
       console.log(filterDataNotes)
       return filterDataNotes
