@@ -3,7 +3,7 @@ import FormNote from './formNewAndEditNote.js';
 
 function CreateNote(props) {
   let inputValue = props.inputValue;
-  let texareaValue = props.texareaValue;
+  let textareaValue = props.textareaValue;
   let selectValue = props.selectValue;
   let favoritesValue = props.favoritesValue;
   let id = props.itId;
@@ -13,9 +13,9 @@ function CreateNote(props) {
       favoritesValue={favoritesValue}
       selectValue={selectValue}
       inputValue={inputValue}
-      texareaValue={texareaValue}
+      textareaValue={textareaValue}
       dataTag={props.dataTag}
-      setDisplay={props.setDisplay}
+      setOnDisplay={props.setOnDisplay}
       id={id}
     />
   );

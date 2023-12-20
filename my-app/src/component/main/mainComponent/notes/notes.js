@@ -13,10 +13,10 @@ function Notes(props) {
             tag={ArrayObj.tag}
             trash={ArrayObj.trash}
             favorites={ArrayObj.favorites}
-            key={index}
+            key={index} 
             setdata={props.setData}
             data={props.data}
-            setDisplay={props.setDisplay}
+            setOnDisplay={props.setOnDisplay}
           />
         ))}
       </ul>

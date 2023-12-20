@@ -16,7 +16,7 @@ function NotesHtml(props) {
       props.favorites,
       props.id
     );
-    props.setDisplay(true);
+    props.setOnDisplay(true);
   }
 
   return (

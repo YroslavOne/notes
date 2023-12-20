@@ -4,10 +4,10 @@ import { Context } from '../../../Context';
 
 function FormNote(props) {
   const [valueInput, setValueInput] = useState(props.inputValue);
-  const [valueTexarea, setValueTexarea] = useState(props.texareaValue);
+  const [valueTextarea, setValueTextarea] = useState(props.textareaValue);
   const [valueSelect, setValueSelect] = useState(props.selectValue);
   const [valueFavorites, setValueFavorites] = useState(props.favoritesValue);
-  const { updateLocalStorageOki, dateLocalStorageOki } = useContext(Context);
+  const { updateLocalStorage, dateLocalStorage } = useContext(Context);
   function forEachValueSelect() {
     let arrayValueSelect = [];
     if (
@@ -26,7 +26,7 @@ function FormNote(props) {
 
   function saveNote() {
     let arraeValueSelected = forEachValueSelect();
-    const arrayDataNote = dateLocalStorageOki();
+    const arrayDataNote = dateLocalStorage();
 
     const filterArray = arrayDataNote.filter(
       (filterArrayDataNote) => filterArrayDataNote.id === props.id
@@ -36,31 +36,31 @@ function FormNote(props) {
         if (Object.id === props.id) {
           Object.id = props.id;
           Object.title = valueInput;
-          Object.description = valueTexarea;
+          Object.description = valueTextarea;
           Object.tag = arraeValueSelected;
           Object.trash = false;
           Object.favorites = valueFavorites;
         }
       });
-      updateLocalStorageOki(arrayDataNote);
+      updateLocalStorage(arrayDataNote);
     } else {
       let objCreateNote = {
         id: props.id,
         title: valueInput,
-        description: valueTexarea,
+        description: valueTextarea,
         tag: arraeValueSelected,
         trash: false,
         favorites: valueFavorites,
       };
       arrayDataNote.push(objCreateNote);
-      updateLocalStorageOki(arrayDataNote);
+      updateLocalStorage(arrayDataNote);
     }
 
     setValueInput('');
-    setValueTexarea('');
+    setValueTextarea('');
     setValueSelect(props.selectValue);
     setValueFavorites(false);
-    props.setDisplay(false);
+    props.setOnDisplay(false);
   }
 
   return (
@@ -78,10 +78,10 @@ function FormNote(props) {
           name="story"
           rows="5"
           cols="33"
-          value={valueTexarea}
+          value={valueTextarea}
           className="create-notes-description"
           placeholder="Description"
-          onChange={(e) => setValueTexarea(e.target.value)}
+          onChange={(e) => setValueTextarea(e.target.value)}
         ></textarea>
         <select
           type="select"

@@ -18,21 +18,21 @@ function Dashboard() {
 
   const [dataNote, setDataNote] = useState(dataNotes);
   const [filterDataNote, setFilterDataNote] = useState(dataNotes);
-  const [onDisplay, setDisplay] = useState(false);
+  const [onDisplay, setOnDisplay] = useState(false);
   const [selectCategory, setSelectCategory] = useState('All');
   const [inputValue, setInputValue] = useState('');
-  const [texareaValue, setTexareaValue] = useState('');
+  const [textareaValue, setTextareaValue] = useState('');
   const [itId, setItId] = useState('');
   const [selectValue, setSelectValue] = useState(['']);
   const [favoritesValue, setFavoritesValue] = useState(false);
 
-  const updateLocalStorageOki = (arrayNote) => {
+  const updateLocalStorage = (arrayNote) => {
     localStorage.arrayNote = JSON.stringify(arrayNote);
     setDataNote(arrayNote);
     filterArray(arrayNote, selectCategory);
   };
 
-  const dateLocalStorageOki = () => {
+  const dateLocalStorage = () => {
     return dataNote;
   };
 
@@ -60,24 +60,24 @@ function Dashboard() {
 
   function displayOpen(
     itInputValue,
-    itTexareaValue,
+    itTextareaValue,
     itSelectValue,
     itFavoritesValue,
     itId
   ) {
     setInputValue(itInputValue);
-    setTexareaValue(itTexareaValue);
+    setTextareaValue(itTextareaValue);
     setSelectValue(itSelectValue);
     setFavoritesValue(itFavoritesValue);
     setItId(itId);
-    setDisplay(!onDisplay);
+    setOnDisplay(!onDisplay);
   }
 
   return (
     <Context.Provider
       value={{
-        updateLocalStorageOki,
-        dateLocalStorageOki,
+        updateLocalStorage,
+        dateLocalStorage,
         filterArray,
         displayOpen,
       }}
@@ -106,10 +106,10 @@ function Dashboard() {
                 dataTag={ArrayTags}
                 itId={itId}
                 inputValue={inputValue}
-                texareaValue={texareaValue}
+                textareaValue={textareaValue}
                 selectValue={selectValue}
                 favoritesValue={favoritesValue}
-                setDisplay={setDisplay}
+                setOnDisplay={setOnDisplay}
                 onDisplay={onDisplay}
               />
             </div>
@@ -119,7 +119,7 @@ function Dashboard() {
             <Notes
               data={filterDataNote}
               dataTag={ArrayTags}
-              setDisplay={setDisplay}
+              setOnDisplay={setOnDisplay}
             />
           </div>
         </div>

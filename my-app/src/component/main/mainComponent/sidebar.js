@@ -9,9 +9,9 @@ function Sidebar(props) {
   const [category, setCategory] = useState('All');
 
   props.setSelectCategory(category);
-  const { filterArray, dateLocalStorageOki } = useContext(Context);
+  const { filterArray, dateLocalStorage } = useContext(Context);
 
-  const dataNote = dateLocalStorageOki();
+  const dataNote = dateLocalStorage();
   function plumbus(e) {
     setCategory(e.target.value);
     filterArray(dataNote, e.target.value);
@@ -31,9 +31,9 @@ function Sidebar(props) {
           for="All"
           className="sidebar-button"
         >
-          <Clipboard2 className="sidebar-icon-button" />
-          <input type="radio" id="All" name="drone" value="All" />
-          <a>All notes</a>
+          
+          <input type="radio" id="All" name="drone" value="All"/>
+          <a> <Clipboard2 className="sidebar-icon-button" />All notes</a>
         </label>
 
         <label
@@ -42,9 +42,9 @@ function Sidebar(props) {
           className="sidebar-button"
         >
           {' '}
-          <Trash3 className="sidebar-icon-button" />
+          
           <input type="radio" id="Trash" name="drone" value="Trash" />
-          <a>Trash</a>
+          <a> <Trash3 className="sidebar-icon-button" />Trash</a>
         </label>
 
         <label
@@ -52,9 +52,9 @@ function Sidebar(props) {
           for="Favorites"
           className="sidebar-button"
         >
-          <Star className="sidebar-icon-button" />
+          
           <input type="radio" id="Favorites" name="drone" value="Favorites" />
-          <a>Favorites</a>
+          <a> <Star className="sidebar-icon-button" />Favorites</a>
         </label>
       </div>
     </div>

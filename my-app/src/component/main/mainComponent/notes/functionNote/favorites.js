@@ -4,10 +4,10 @@ import { useState, useContext } from 'react';
 import { Context } from '../../../Context';
 
 function FavoritesNote(props) {
-  const { updateLocalStorageOki, dateLocalStorageOki } = useContext(Context);
+  const { updateLocalStorage, dateLocalStorage } = useContext(Context);
   const [starTrue, setStarTrue] = useState(props.dataFavorites);
   function favoritesNotes() {
-    const arrayDataNote = dateLocalStorageOki();
+    const arrayDataNote = dateLocalStorage();
     arrayDataNote.map((Object, index) => {
       if (Object.id === props.id) {
         if (Object.favorites === true) {
@@ -19,7 +19,7 @@ function FavoritesNote(props) {
         }
       }
     });
-    updateLocalStorageOki(arrayDataNote);
+    updateLocalStorage(arrayDataNote);
   }
 
   if (starTrue === true) {
