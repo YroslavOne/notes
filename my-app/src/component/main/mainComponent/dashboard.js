@@ -31,7 +31,7 @@ function Dashboard() {
   const updateLocalStorage = (arrayNote) => {
     localStorage.arrayNote = JSON.stringify(arrayNote);
     setDataNote(arrayNote);
-    filterArray(arrayNote, selectCategory, valueSearch);
+    filterArray(arrayNote, selectCategory, valueSearch, selectTag);
   };
 
   const dateLocalStorage = () => {
